@@ -1,11 +1,49 @@
 // Pluja o neu
 
+
+L.TileLayerNoFlickering = L.TileLayer.extend({
+        _refreshTileUrl: function(tile, url) {
+                //use a image in background, so that only replace the actual tile, once image is loaded in cache!
+                var img = new Image();
+                img.onload = function() {
+                        L.Util.requestAnimFrame(function() {
+                                 tile.el.src = url;
+                        });
+                }
+                img.src = url;
+        },
+        refresh: function() {
+                //prevent _tileOnLoad/_tileReady re-triggering a opacity animation
+                var wasAnimated = this._map._fadeAnimated;
+                this._map._fadeAnimated = false;
+
+                for (var key in this._tiles) {
+                        tile = this._tiles[key];
+                        if (tile.current && tile.active) {
+                                var oldsrc = tile.el.src;
+                                var newsrc = this.getTileUrl(tile.coords);
+                                if (oldsrc != newsrc) {
+                                        //L.DomEvent.off(tile, 'load', this._tileOnLoad); ... this doesnt work!
+
+                                        this._refreshTileUrl(tile,newsrc);
+                                }
+                        }
+                }
+
+                if (wasAnimated)
+                        setTimeout(function() { map._fadeAnimated = wasAnimated; }, 5000);
+        }
+});
+L.TileLayerNoFlickering = function(url, options) {
+    return new L.TileLayerNoFlickering(url, options);
+}
+
 const max_range_steps = 30;
 
 // https://static-m.meteo.cat/tiles/plujaneu/{any}/{mes}/{dia}/{hora}/{minut}/{z}/000/000/{x}/000/000/{y}.png
 var fillTo=function(a,b){null===b&&(b=3);var c=b-a.toString().length;b="";for(var d=0;d<c;d++)b=b.concat("0");return b.concat(a)};
 var range_element = document.getElementById('plujaoneu-range');
-var plujaneu_layer = L.tileLayer('https://static-m.meteo.cat/tiles/plujaneu/{any}/{mes}/{dia}/{hora}/{minut}/{z}/000/000/{x}/000/000/{y}.png', {attribution: '© <a href="https://www.meteo.cat/">Meteocat</a>', opacity:0.85, maxNativeZoom:7});
+var plujaneu_layer = L.TileLayerNoFlickering('https://static-m.meteo.cat/tiles/plujaneu/{any}/{mes}/{dia}/{hora}/{minut}/{z}/000/000/{x}/000/000/{y}.png', {attribution: '© <a href="https://www.meteo.cat/">Meteocat</a>', opacity:0.85, maxNativeZoom:7});
 plujaneu_layer.getTileUrl = function(a) {let r=range_values[max_range_steps-1-range_element.value]; return L.Util.template(this._url,L.extend({any:r.any,mes:fillTo(r.mes, 2),dia:fillTo(r.dia, 2),hora:fillTo(r.hora, 2),minut:fillTo(r.min, 2),z:fillTo(a.z,2),x:fillTo(a.x,3),y:fillTo(Math.abs(a.y-127),3)}))};
 
 const increment_mins = 6;
@@ -71,7 +109,8 @@ function onLayerAddPlujaoNeu(e) {
 }
 
 function updatePlujaoNeuTiles () {
-	plujaneu_layer.redraw();
+	plujaneu_layer.refresh();
+
 	let r = range_values[max_range_steps - 1 - range_element.value];
 	setDateText(r);
 }
