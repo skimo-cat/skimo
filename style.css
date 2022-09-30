@@ -1,0 +1,215 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body, #map {
+    height: 100%;
+    width: 100vw;
+}
+
+.peak_names {
+	font-family: ui-sans-serif, system-ui;
+	margin-bottom: 0 !important;
+}
+
+.peak_height {
+	font-size: small;
+}
+
+.p-height {
+	margin-top: 0 !important;
+}
+
+.links {
+	padding: 10px;
+	margin:  10px;
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+.route_link {
+	display: block;
+	width: 200px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.route_description {
+	margin: 0.5em 0 !important;
+}
+
+.box {
+	float: right;
+	font-size: xx-large;
+}
+
+#wc-overlay {
+	text-align: center;
+	font-family: ui-sans-serif, system-ui;
+	position: absolute;
+	z-index: 10000;
+	max-width: 900px;
+	width: 100%;
+	padding: 1%;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+}
+
+.centered-axis-xy {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.wc-text {
+	text-align: center !important;
+} 
+
+#wc-img {
+	max-width: 900px;
+	/* Pot distorsionar alguna imatge */
+	max-height: 550px;
+	width: 100%;
+	height: auto;
+}
+
+#wc-range {
+	padding: 10px;
+	float: left;
+	max-width: 400px;
+	width: 50%;
+}
+
+#wc-footer {
+	text-align: left;
+	margin-bottom: 0;
+	padding: 10px;
+}
+
+.spinner {
+	margin: auto;
+	border: 4px solid rgba(0, 0, 0, 0.1);
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	border-left-color: #09f;
+
+	animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+#plujaoneu-overlay {
+	font-family: ui-sans-serif, system-ui;
+	position: absolute;
+	z-index: 10000;
+	right: 0%;
+    bottom: 5%;
+	max-width: 300px;
+	width: 70%;
+	padding: 1%;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+}
+
+#logo-overlay {
+	position: absolute;
+	z-index: 10000;
+    bottom: 0%;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+
+}
+
+#logo-overlay img {
+	max-height: 100px;
+	height: 5%;
+	width: auto;
+}
+
+#bpa-svg {
+    max-width: 35px;
+    height: auto;
+    float: right;
+    transition: all 0.5s;
+	transform-origin: 50% 50%;
+}
+
+#bpa-svg:hover {
+	transform: scale(3);
+}
+
+
+/* ----- */
+
+.legend {
+	bottom-margin: 20px;
+}
+
+.legend .legend-scale {
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.legend-labels {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.legend .legend-scale {
+	margin-bottom:  50px;
+}
+
+.legend .legend-scale ul li {
+    display: block;
+    float: left;
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: initial;
+}
+
+.legend ul.legend-labels li span:first-of-type {
+    border: 1px solid rgba(44,62,80,0.4);
+}
+
+.legend ul.legend-labels li span {
+    float: left;
+    height: 7px;
+    width: 11px;
+    text-align: center;
+}
+
+.legend .label {
+    clear: both;
+    font-size: .65em;
+    text-align: center;
+    font-family: "Roboto",Arial,sans-serif;
+    position: relative;
+    left: 10px;
+}
