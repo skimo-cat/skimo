@@ -152,6 +152,16 @@ html, body, #map {
 	transform: scale(3);
 }
 
+.refu-people-img {
+	vertical-align: middle;
+    max-width: 35px;
+    height: auto;
+}
+
+.refu-people {
+	float: right;
+
+}
 
 /* ----- */
 

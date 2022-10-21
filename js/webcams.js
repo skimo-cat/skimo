@@ -4,6 +4,18 @@ var selected_wc = undefined;
 const WC_BASE_DOMAIN = 'https://img.skimo.cat/'
 const WC_DATA_URL = WC_BASE_DOMAIN + '/img/data.json'
 
+var webcamIcon = L.icon({
+    iconUrl: 'svg/webcam.svg',
+    //shadowUrl: 'leaf-shadow.png',
+
+    //iconSize:     [19, 47], // size of the icon
+    iconSize:     [16, 28], // size of the icon
+    //shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [10, 25], // point of the icon which will correspond to marker's location
+    //shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -30] // point from which the popup should open relative to the iconAnchor
+});
+
 function preloadImages() {
 	let val = document.getElementById('wc-range').value;
 	let elems_to_preload = Math.min(val, 5);

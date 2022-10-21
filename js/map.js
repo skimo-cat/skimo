@@ -8,8 +8,14 @@ var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
 var tpotresc_layer = L.tileLayer('https://api.topotresc.com/tiles/{z}/{x}/{y}.png', {attribution: 'Tiles © <a href="https://www.topotresc.com/">topotresc</a>'})
 
 var map = L.map('map', {layers: [outdoors_layer]})
-map.on('load', loadWebcams);
+map.on('load', function() {
+    loadWebcams();
+    loadRefus();
+});
 map.setView([42.52658601622357, 1.545020910702523], 10);
+
+// refusLayer selected by default
+//map.addLayer(refusLayer);
 
 var baseMaps = {
     "Outdoors Thunderforest Map": outdoors_layer,
@@ -18,17 +24,19 @@ var baseMaps = {
 };
 
 var overlayMaps = {
-    "Pluja i Neu": plujaneu_layer
+    "Refugis": refusLayer,
+    "Radar Pluja i Neu": plujaneu_layer,
+
 };
 
 map.on('overlayadd', function (e) {
-    if (e.name === 'Pluja i Neu') {
+    if (e.name === 'Radar Pluja i Neu') {
        onLayerAddPlujaoNeu(e);
     }
 });
 
 map.on('overlayremove', function (e) {
-    if (e.name === 'Pluja i Neu') {
+    if (e.name === 'Radar Pluja i Neu') {
        onRemoveLayerAddPlujaoNeu(e);
     }
 });
@@ -47,17 +55,6 @@ var cimIcon = L.icon({
     popupAnchor:  [-3, -30] // point from which the popup should open relative to the iconAnchor
 });
 
-var webcamIcon = L.icon({
-    iconUrl: 'svg/webcam.svg',
-    //shadowUrl: 'leaf-shadow.png',
-
-    //iconSize:     [19, 47], // size of the icon
-    iconSize:     [16, 28], // size of the icon
-    //shadowSize:   [50, 64], // size of the shadow
-    iconAnchor:   [10, 25], // point of the icon which will correspond to marker's location
-    //shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor:  [-3, -30] // point from which the popup should open relative to the iconAnchor
-});
 
 var markers = new Array(cims.length);
 var gpx_open = new Array();
