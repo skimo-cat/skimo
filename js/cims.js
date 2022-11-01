@@ -642,4 +642,114 @@ var cims = [
 
 		]
 	},
+	{
+		name: 'Cap del Port',
+		height: 2750,
+		lat: 42.58064187941781,
+		lon:  1.710939619224519,
+		routes: [
+			{
+				origin: 'Vall d\'Incles',
+				description: '',
+				level: 3,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/pic-cap-del-port-2-750m-34813264',
+				],
+				gpx: [
+					'gpx/cap-del-port/cap-del-port.gpx'
+				]
+			},
+		]
+	},
+	{
+		name: 'Bac d\'Ortella',
+		height: 2722,
+		lat: 42.54156242687387,
+		lon: 1.906399838626385,
+		routes: [
+			{
+				origin: 'Bena',
+				description: '',
+				level: 3,
+				links: [
+					'http://cegesqui.blogspot.com/2018/03/bac-d-ortella-2722m.html',
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/bac-dortella-2-722m-32878307',
+				],
+				gpx: [
+					'gpx/bac-dortella/bac-dortella.gpx'
+				]
+			},
+		]
+	},
+	{
+		name: 'Tarbessou',
+		height: 2364,
+		lat: 42.7138614914681,
+		lon: 1.970713644041098,
+		routes: [
+			{
+				origin: 'Mijanès',
+				description: '',
+				level: 3,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/estacio-esqui-mijanes-tarbesou-12794611',
+				],
+				gpx: [
+					'gpx/tarbessou/tarbessou.gpx'
+				]
+			},
+		]
+	},
+	{
+		name: 'Tossa de Pé d\'Orrés',
+		height: 2468,
+		lat: 42.61807,
+		lon: 1.78055,
+		routes: [
+			{
+				origin: 'L\'Hospitalet-près-l\'Andorre',
+				description: '',
+				level: 3,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/tose-de-pedourres-2468m-25-01-2009-281465',
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/tossa-de-pe-dorres-2-458-m-5817170'
+				],
+				gpx: [
+					'gpx/tosse-pedourres/tosse-pedourres.gpx'
+				]
+			},
+		]
+	},
+	{
+		name: 'Pic de l\'Alba',
+		height: 2764,
+		lat: 42.61531,
+		lon: 1.75221,
+		routes: [
+			{
+				origin: 'L\'Hospitalet-près-l\'Andorre',
+				description: '',
+				level: 3,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/pic-dalbe-2-764-m-ariege-con-esquis-9343331',
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/el-pic-dalbe-circular-des-de-lhospitalet-96530794'
+				],
+				gpx: [
+					'gpx/pic-de-lalba/pic-de-lalba-ascens.gpx'
+				]
+			},
+			{
+				origin: 'L\'Hospitalet-près-l\'Andorre',
+				description: 'Possible descens per la vall de Siscar',
+				level: 3,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/pic-dalbe-2-764-m-ariege-con-esquis-9343331',
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/el-pic-dalbe-circular-des-de-lhospitalet-96530794'
+				],
+				gpx: [
+					'gpx/pic-de-lalba/pic-de-lalba-descens.gpx'
+				]
+			},
+		]
+	},
 ];
