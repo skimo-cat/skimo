@@ -11,6 +11,7 @@ var map = L.map('map', {layers: [outdoors_layer]})
 map.on('load', function() {
     loadWebcams();
     loadRefus();
+    //loadGN();
 });
 map.setView([42.52658601622357, 1.545020910702523], 10);
 
@@ -25,6 +26,7 @@ var baseMaps = {
 
 var overlayMaps = {
     "Refugis": refusLayer,
+    "Gruix de neu": GNLayer,
     "Radar Pluja i Neu": plujaneu_layer,
 
 };
@@ -33,25 +35,27 @@ map.on('overlayadd', function (e) {
     if (e.name === 'Radar Pluja i Neu') {
        onLayerAddPlujaoNeu(e);
     }
+    if (e.name === 'Gruix de neu') {
+        openGNPopups();
+    }
 });
 
 map.on('overlayremove', function (e) {
     if (e.name === 'Radar Pluja i Neu') {
        onRemoveLayerAddPlujaoNeu(e);
     }
+    if (e.name === 'Gruix de neu') {
+        closeGNPopups();
+    }
 });
+
 
 var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 var cimIcon = L.icon({
     iconUrl: 'svg/pic.svg',
-    //shadowUrl: 'leaf-shadow.png',
-
-    //iconSize:     [19, 47], // size of the icon
     iconSize:     [29, 57], // size of the icon
-    //shadowSize:   [50, 64], // size of the shadow
     iconAnchor:   [10, 25], // point of the icon which will correspond to marker's location
-    //shadowAnchor: [4, 62],  // the same for the shadow
     popupAnchor:  [-3, -30] // point from which the popup should open relative to the iconAnchor
 });
 
