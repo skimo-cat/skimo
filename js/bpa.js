@@ -35,10 +35,11 @@ function getBPAData() {
 	.then((out) => {
 		bpa_data = out;
 	})
-	.catch(err => { throw err });
+	.catch(err => { throw err })
+	.finally(() => {setMarkers()});
 }
 
-getBPAData();
+//getBPAData();
 
 // Refresh BPA data every 30 minutes just in case
 window.setInterval(function(){
