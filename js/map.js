@@ -7,6 +7,13 @@ var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
 });
 var tpotresc_layer = L.tileLayer('https://api.topotresc.com/tiles/{z}/{x}/{y}.png', {attribution: 'Tiles © <a href="https://www.topotresc.com/">topotresc</a>'})
 
+var atesLayer = L.tileLayer.wms('https://geoserver.atesmaps.org/wms?TRANSPARENT=true&', {
+    layers: ' ATES:ates_all',
+    transparent: true,
+    format: 'image/png',
+    attribution: '<a htef="https://atesmaps.org">Atesmaps</a>'
+});
+
 var map = L.map('map', {layers: [outdoors_layer]})
 map.on('load', function() {
     loadWebcams();
@@ -28,6 +35,7 @@ var overlayMaps = {
     "Refugis": refusLayer,
     "Gruix de neu": GNLayer,
     "Radar Pluja i Neu": plujaneu_layer,
+    "Cartografia ATES": atesLayer,
 
 };
 
