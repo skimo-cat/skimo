@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ca">
+<!-- https://www.digitalocean.com/community/tutorials/how-to-style-a-table-with-css -->
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4QKGLSR1J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-C4QKGLSR1J');
+    </script>
+
+    <meta charset="utf-8">
+
+
+    <link href="style_gruixneu.css" rel="stylesheet" media="all" />
+
+    <title>Gruixos de neu a Catalunya</title>
+    <meta name="description" content="Gruixos de neu al pirineu Català">
+    <meta name="author" content="skimo.cat">
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <div id="container">
+    <table>
+      <caption>Gruixos de neu (cm)</caption>
+      <thead>
+        <th></th>
+        <th>Gruix de neu</th>
+        <th>Increment 24h</th>
+        <th>Increment 7 dies</th>
+        <th>Increment anual</th>
+      </thead>
+      <tbody id="gruixos_table_body">
+        <tr>
+          <th>Carregant...</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="footer">skimo.cat | Dades de les estacions automàtiques del meteocat (<a target="_blank" href="https://www.meteo.cat/observacions/xema">XEMA</a>)</p>
+    </div>
+
+    <script type="text/javascript">
+        function make_cell(curr_obj, key) {
+            let html = '';
+            html += '<td'
+            if (curr_obj[key] > 20) {
+              html += ' class="cell_increment_fort"';
+            } else if (curr_obj[key] > 10) {
+              html += ' class="cell_increment_mig"';
+            } else if (curr_obj[key] > 0) {
+              html += ' class="cell_increment_baix"';
+            } else if (curr_obj[key] < -20) {
+              html += ' class="cell_decrement_fort"';
+            } else if (curr_obj[key] < -10) {
+              html += ' class="cell_decrement_mig"';
+            } else if (curr_obj[key] < 0) {
+              html += ' class="cell_decrement_baix"';
+            }
+            html += '>'
+            html += ((curr_obj[key] > 0) ? '+' : '')
+            if (curr_obj[key] === undefined) {
+              html += 'n/d';
+            } else {
+              html += curr_obj[key];
+            }
+            html += '</td>';
+            return html;
+        }
+
+        fetch("https://data.skimo.cat/increment.json")
+        .then(res => res.json())
+        .then((out) => {
+          let increment = out;
+          let html="";
+          for (let i=0; i<Object.keys(increment).length; i++) {
+              let curr_obj = increment[Object.keys(increment)[i]];
+              html += '<tr>';
+
+              html += '<th>' + curr_obj['name'] + '</th>';
+              html += '<td>' +  curr_obj['gruix'] + '</td>';
+              html += make_cell(curr_obj, 'yesterday');
+              html += make_cell(curr_obj, 'week_ago');
+              html += make_cell(curr_obj, 'year_ago');
+              //html += '<td>' + ((curr_obj['week_ago'] > 0) ? '+' : '') + curr_obj['week_ago'] + '</td>';
+              //html += '<td>' + ((curr_obj['year_ago'] > 0) ? '+' : '') + curr_obj['year_ago'] + '</td>';
+
+              html += '</tr>';
+          }
+          document.getElementById('gruixos_table_body').innerHTML = html;
+        })
+        .catch(err => { throw err });
+
+    </script>
+  </body>
+</html>

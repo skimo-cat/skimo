@@ -1,0 +1,93 @@
+body {
+  font-family: sans-serif;
+}
+
+#container {
+
+  position: fixed; /* or absolute */
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, 5%);
+}
+
+.footer {
+  font-size: 0.875rem;
+  color: #616161;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  vertical-align: middle;
+  text-align: center;
+
+}
+
+caption {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: left;
+  color: #333;
+  margin-bottom: 16px;
+
+}
+
+thead {
+  background-color: #333;
+  color: white;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 2%;
+}
+
+th, td {
+  padding: 8px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #eee;
+}
+
+tbody th {
+  background-color: #36c;
+  color: #fff;
+  text-align: left;
+}
+
+tbody tr:nth-child(even) th {
+  background-color: #25c;
+}
+
+.cell_increment_baix {
+  background-color: #c1ffc1;
+  font-weight: bold;
+}
+
+.cell_increment_mig {
+  background-color: #6af76a;
+  font-weight: bold;
+}
+
+.cell_increment_fort {
+  background-color: #00ff00;
+  font-weight: bold;
+}
+
+.cell_decrement_fort {
+  background-color: red;
+  font-weight: bold;
+}
+
+.cell_decrement_mig {
+  background-color: #ff6a6a;
+  font-weight: bold;
+}
+
+.cell_decrement_baix {
+  background-color: #ffb9b9;
+  font-weight: bold;
+}
