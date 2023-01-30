@@ -327,7 +327,7 @@ var cims = [
 			{
 				origin: 'Estació Formigueres',
 				description: '',
-				level: 2,
+				level: 3,
 				links: [
 					'https://esquimontseny.blogspot.com/2018/01/pic-de-mortiers-per-formigueres.html',
 					'http://josepmariamoya.blogspot.com/2016/01/formigueres-1740-mts-pic-de-mortiers.html',
@@ -335,6 +335,48 @@ var cims = [
 				],
 				gpx: [
 					'gpx/mortiers/mortiers.gpx'
+				]
+			}
+		]
+	},
+	{
+		name: 'Pic de la Portella Gran',
+		height: 2765,
+		lat: 42.621530276350164,
+		lon: 1.9765146102508881,
+		routes: [
+			{
+				origin: 'Estació Formigueres',
+				description: 'Possiblitat d\'agafat forfait de randonée a Formigueres (8€). Possibilitat de baixar per la Vall de Galba.',
+				level: 3,
+				links: [
+					'https://www.wikiloc.com/back-country-skiing-trails/pic-de-la-portella-gran-des-de-formigueres-33982952',
+					'https://www.esportselcim.com/blog/puig-de-la-portella-gran-formigueres/',
+					'https://www.wikiloc.com/back-country-skiing-trails/puig-de-la-portella-gran-12752087',
+				],
+				gpx: [
+					'gpx/portella-gran/portella-gran.gpx'
+				]
+			}
+		]
+	},
+	{
+		name: 'Puig de la Cometa',
+		height: 2763,
+		lat: 42.61732187763118,
+		lon: 1.9592436044695207,
+		routes: [
+			{
+				origin: 'Estació Les Angles',
+				description: 'Possibilitat de tornar per Mont Llaret',
+				level: 3,
+				links: [
+					'https://www.wikiloc.com/back-country-skiing-trails/puig-de-la-cometa-els-angles-33272801',
+					'http://esquimontseny.blogspot.com/2016/01/puig-de-la-cometa-per-les-angles.html',
+					'http://relatsdemuntanya.blogspot.com/2013/03/pic-de-la-cometa-mont-llaret-i-roc-dauda.html'
+				],
+				gpx: [
+					'gpx/puig-cometa/puig-cometa.gpx'
 				]
 			}
 		]
