@@ -23,6 +23,26 @@ var cims = [
 		]
 	},
 	{
+		name: 'Pic de la Coma de Varilles',
+		height: 2760,
+		lat: 42.619142634773816,
+		lon: 1.6642544745809575,
+		routes: [
+			{
+				origin: 'Vall de Ransol',
+				description: '',
+				level: 3,
+				links: [
+					'https://es.wikiloc.com/rutas-esqui-de-montana/pic-de-coma-de-varilles-16258454/',
+					'https://www.engarrista.com/node/781',
+				],
+				gpx: [
+					'gpx/coma-varilles/coma-varilles.gpx'
+				]
+			}
+		]
+	},
+	{
 		name: 'Puigmal de Llo',
 		height: 2801,
 		lat: 42.39656194347737,
