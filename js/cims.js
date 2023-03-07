@@ -173,13 +173,24 @@ var cims = [
 		routes: [
 			{
 				origin: 'Estació Porté-Puymorens',
-				description: '',
+				description: 'Pujada i baixada per l\'estació d\'esquí. Itinerari d\'iniciació.',
 				level: 1,
 				links: [
 					'https://www.engarrista.com/node/692',
 				],
 				gpx: [
 					'gpx/mina/mina.gpx',
+				]
+			},
+			{
+				origin: 'Estació Porté-Puymorens',
+				description: 'Ascensió per la cresta sud. Senzilla però una mica aèrea en algun punt. Moltes possibilitats de baixada (canals).',
+				level: 2,
+				links: [
+					'https://es.wikiloc.com/rutas-esqui-de-montana/la-mina-per-la-cresta-sud-des-de-porte-5963347',
+				],
+				gpx: [
+					'gpx/mina/cresta-sud.gpx',
 				]
 			}
 		]
@@ -355,6 +366,17 @@ var cims = [
 				],
 				gpx: [
 					'gpx/mortiers/mortiers.gpx'
+				]
+			},
+			{
+				origin: 'Estació Formigueres',
+				description: 'Pujada o baixada per la vall de Galba. És aconsellable fer la vall de baixada.',
+				level: 3,
+				links: [
+					'https://es.wikiloc.com/rutas-esqui-de-montana/mortiers-ski-de-muntanya-12766244'
+				],
+				gpx: [
+					'gpx/mortiers/vall-de-galba.gpx'
 				]
 			}
 		]
@@ -810,6 +832,25 @@ var cims = [
 				],
 				gpx: [
 					'gpx/pic-de-lalba/pic-de-lalba-descens.gpx'
+				]
+			},
+		]
+	},
+	{
+		name: 'Pic d\'Anrodat',
+		height: 2730,
+		lat: 42.62489,
+		lon: 1.68264,
+		routes: [
+			{
+				origin: 'Vall d\'Incles',
+				description: '',
+				level: 4,
+				links: [
+					'https://www.wikiloc.com/back-country-skiing-trails/pic-danrodat-coume-denfer-canillo-andorra-66356111',
+				],
+				gpx: [
+					'gpx/anrodat/anrodat.gpx'
 				]
 			},
 		]
