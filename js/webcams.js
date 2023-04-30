@@ -52,10 +52,17 @@ function loadWebcams() {
 	.then(res => res.json())
 	.then((out) => {
 		webcams = out;
-		var webcam_markers = new Array(webcams.length);
+		let now = new Date();
+		var webcam_markers = new Array();
 		for (let i=0; i<webcams.length; i++) {
 		    let wc = webcams[i];
-		    webcam_markers[i] = L.marker([wc.lat, wc.lon], {icon: webcamIcon}).addTo(map).on('click', function (e) {
+			let last_img = wc.imgs[wc.imgs.length-1];
+			// Only show webcams updated in the last 24h
+			if (((now.getTime()/1000) - last_img.timestamp) > (60 * 60 * 24)) {
+				console.log('Webcam ' + wc.original_name + ' is too old, skipping');
+				continue;
+			}
+		    webcam_markers.push(L.marker([wc.lat, wc.lon], {icon: webcamIcon}).addTo(map).on('click', function (e) {
 		    	selected_wc = wc;
 		        //let url = wc.url + '?t=' + Math.trunc(new Date().getTime() / 1000 / 1800);
 		        let initial_url = WC_BASE_DOMAIN + wc.imgs[wc.imgs.length-1].path;
@@ -79,7 +86,7 @@ function loadWebcams() {
 		        document.getElementById("wc-title").innerHTML = wc.original_name;
 		        document.getElementById("wc-attribution").innerHTML = wc.attribution;
 
-		    });
+		    }));
 		}
 
 	})
@@ -88,7 +95,7 @@ function loadWebcams() {
 
 function onclickWCOveraly(e) {
 	// this.style.visibility='hidden';
-	if (e.path[0] !== document.querySelector("#wc-range")) {
+	if ((e.path !== undefined) && (e.path[0] !== document.querySelector("#wc-range"))) {
 		document.getElementById('wc-overlay').style.visibility='hidden';
 	}
 }

@@ -855,4 +855,88 @@ var cims = [
 			},
 		]
 	},
+	{
+		name: 'Tuc de Portavera',
+		height: 2256,
+		lat: 42.742574277088536,
+		lon: 1.1311867833137514,
+		zona_allaus_cat: 1, // Aran
+		routes: [
+			{
+				origin: 'Refugi del Fornet',
+				description: 'Zona molt propensa a allaus, molta precaució.',
+				level: 5,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/port-de-salau-i-tuc-de-portavera-93359304',
+				],
+				gpx: [
+					'gpx/portavera/portavera.gpx'
+				]
+			},
+		]
+	},
+	{
+		name: 'Pic de Montalt',
+		height: 2495,
+		lat: 42.7503133048166,
+		lon: 1.132747828960419,
+		zona_allaus_cat: 1, // Aran
+		routes: [
+			{
+				origin: 'Refugi del Fornet',
+				description: 'Zona molt propensa a allaus, molta precaució.',
+				level: 5,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/pic-de-montaut-o-montalt-94306935',
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/pic-de-montaud-63685853',
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/montalt-per-laresta-sur-93044613'
+				],
+				gpx: [
+					'gpx/montaut/montaut.gpx'
+				]
+			},
+		]
+	},
+	{
+		name: 'Pic de Moredo',
+		height: 2776,
+		lat: 42.71817692020513,
+		lon: 1.0508412122726443,
+		zona_allaus_cat: 1, // Aran
+		routes: [
+			{
+				origin: 'Bordes de Moredo',
+				description: 'Per accedir a l\'inici amb cotxe es necessita un 4x4, o bé es pot començar a peu o en bicicleta des de més a baix.',
+				level: 4,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/pic-de-moredo-2766m-4447710',
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/2014-03-15-08-23-pic-moredo-9626470'
+				],
+				gpx: [
+					'gpx/moredo/moredo.gpx'
+				]
+			},
+		]
+	},
+	{
+		name: 'Pic de Miques',
+		height: 2489,
+		lat: 42.72777702538729,
+		lon: 1.0727763175964358,
+		zona_allaus_cat: 1, // Aran
+		routes: [
+			{
+				origin: 'Bordes de Moredo',
+				description: 'Zona amb presència d\'ossos, cal anar amb precaució. Per arribar al cim cal superar una cresta, és possible quedar-se a l\'avantcim.',
+				level: 4,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/pic-des-miques-34502390',
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/pic-des-miques-34543287'
+				],
+				gpx: [
+					'gpx/miques/miques.gpx'
+				]
+			},
+		]
+	},
 ];
