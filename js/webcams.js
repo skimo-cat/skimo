@@ -1,7 +1,7 @@
 var webcams;
 var selected_wc = undefined;
 
-const WC_BASE_DOMAIN = 'https://img.skimo.cat/'
+const WC_BASE_DOMAIN = 'https://backend.skimo.cat/'
 const WC_DATA_URL = WC_BASE_DOMAIN + '/img/data.json'
 
 var webcamIcon = L.icon({
