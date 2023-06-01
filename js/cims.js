@@ -939,4 +939,47 @@ var cims = [
 			},
 		]
 	},
+	{
+		name: 'Comapedrosa',
+		height: 2943,
+		lat: 42.59181202446238,
+		lon: 1.4436639843458605,
+		routes: [
+			{
+				origin: 'Arinsal',
+				description: 'Pujada pel refugi del Pla de l\'Estany',
+				level: 4,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/comapedrosa-pel-refugi-del-pla-de-l-estany-i-baixada-per-la-canal-de-lalt-17153747',
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/circular-al-comapedrosa-i-baixant-per-la-canal-del-canut-o-de-lalt-33795698',
+				],
+				gpx: [
+					'gpx/comapedrosa/pla-estany.gpx'
+				]
+			},
+			{
+				origin: 'Arinsal',
+				description: 'Pujada pel refugi del Comapedrosa',
+				level: 4,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/pic-de-comapedrosa-per-refugi-de-les-truites-i-descens-de-la-canal-de-lalt-andorra-6199682',
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/comapedrosa-6663953',
+				],
+				gpx: [
+					'gpx/comapedrosa/refu-comapedrosa.gpx'
+				]
+			},
+			{
+				origin: 'Comapedrosa',
+				description: 'Baixada per la canal de l\'Alt (o del Canut). Trams de més de 40º, perillós amb mala neu.',
+				level: 4,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/comapedrosa-pel-refugi-del-pla-de-l-estany-i-baixada-per-la-canal-de-lalt-17153747',
+				],
+				gpx: [
+					'gpx/comapedrosa/canal-alt.gpx'
+				]
+			},
+		]
+	},
 ];
