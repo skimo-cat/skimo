@@ -1,3 +1,5 @@
+// https://entrepyr.eu/map.html
+// pirisport.com
 var refus = [
    {
       "name":"Refugi de Quatrepins",
@@ -230,13 +232,29 @@ var refus = [
       "name":"Refugi de Comapedrosa",
       "lat":42.579025189938534,
       "lon":1.4492248428841505,
-      "id":129
+      "id":129,
+      "altitud": 2260,
+      "places": 49,
+      "urls": [
+         "https://refugicomapedrosa.ad/",
+         "https://entrepyr.eu/mountainhut/comapedrosa.html"
+      ],
+      "description": "Tancat durant la temporada d'hivern.",
+      "guardat": true,
    },
    {
       "name":"Refugi del Pla de l'Estany",
       "lat":42.59385686400065,
       "lon":1.4606197011575663,
-      "id":130
+      "id":130,
+      "urls": [
+         "https://visitandorra.com/ca/dormir/refugi-pla-de-l-estany/"
+      ],
+      "altitud": 2050,
+      "places": 6,
+      "description": "Es tracta d'un refugi no guardat, que està obert tot l'any, tot i que el manteniment s'acostuma a fer durant els mesos d'estiu (neteja, llenya, farmaciola...). Hi ha cobertura per al telèfon mòbil.",
+      "guardat": false,
+      "lliure": true
    },
    {
       "name":"Refugi de Baiau",
@@ -256,13 +274,28 @@ var refus = [
       "name":"Refugi de Vallferrera",
       "lat":42.62502996481593,
       "lon":1.3881017111188665,
-      "id":143
+      "id":143,
+      "urls": [
+         "https://www.feec.cat/fem-muntanya/refugis/refugi/refugi-vallferrera/",
+         "https://centralderefugis.com/product/refugi-vallferrera/"
+      ],
+      "altitud": 1940,
+      "places": 44,
+      "guardat": true,
+      "description": "En absència de guarda: 10 places. 6 matalassos i 6 mantes. Llum."
    },
    {
       "name":"Refugi de Rialb",
       "lat":42.64000122060332,
       "lon":1.5609288247317943,
-      "id":146
+      "id":146,
+      "guardat": false,
+      "lliure": true,
+      "places": 6,
+      "altitud": 1990,
+      "urls": [
+         "https://visitandorra.com/es/dormir/refugio-de-rialb/"
+      ]
    },
    {
       "name":"Refugi de Broate",
@@ -282,7 +315,17 @@ var refus = [
       "name":"Refugi de Pinet",
       "lat":42.69123995229882,
       "lon":1.3964015544337176,
-      "id":150
+      "id":150,
+      "urls": [
+         "https://www.pyrenees-ariegeoises.com/es/dormir-espanol/todos-los-alojamientos/refuge-du-pinet-1602947",
+         "https://refugeetangpinet.ffcam.fr/"
+      ],
+      "guardat": true,
+      "places": 55,
+      "altitud": 2240,
+      "description": "Guardat de l'1 de juny al 30 de setembre de forma continuada. Primavera amb reserva prèvia."
+
+
    },
    {
       "name":"Refugi de Juclar",
@@ -295,7 +338,7 @@ var refus = [
       ],
       "guardat": true,
       "lliure": true,
-      "description": "El refugi està guardat durant els mesos d’estiu, de l’1 de juny al 30 de setembre, encara que hi ha la possibilitat d’obertura fora d’aquestes dates sota reserva. Quan el refugi está tancat queda habilitada una part lliure annexa, amb capacitat de 6 places.",
+      "description": "El refugi està guardat durant els mesos d'estiu, de l'1 de juny al 30 de setembre, encara que hi ha la possibilitat d'obertura fora d'aquestes dates sota reserva. Quan el refugi está tancat queda habilitada una part lliure annexa, amb capacitat de 6 places.",
       "places": 43
    },
    {
@@ -304,10 +347,23 @@ var refus = [
       "lon":2.011137004583804,
       "id":174,
       "urls": [
-         "https://refuge-camporells.com/"
+         "https://www.turisme-pirineusorientals.cat/refuge-des-camporells/formigueres/hcolllar06600034",
+         "https://agrepy-mb-prestataire.for-system.com/f101222_fr-.aspx",
       ],
       "places": 19,
+      "description": "Refugi guardat entre el 25 de maig i el 30 d'octubre i obert la resta de l'any amb reserva previa",
       "guardat": true
+   },
+   {
+      "name": "Cabana Port d'Urets",
+      "lat": 42.78949195705856,
+      "lon": 0.926394434008148,
+      "id": -1,
+      "urls": [],
+      "places": 3,
+      "description": "Cabana dalt del coll. Restaurada. Amb estufa de llenya.",
+      "guardat": false,
+      "lliure": true
    }
 ]
 

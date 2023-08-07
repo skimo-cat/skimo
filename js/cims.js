@@ -940,6 +940,26 @@ var cims = [
 		]
 	},
 	{
+		name: 'Tuc der Òme',
+		height: 2732,
+		lat: 42.78886,
+		lon: 0.93514,
+		zona_allaus_cat: 1, // Aran
+		routes: [
+			{
+				origin: 'Pla de Beret',
+				description: '',
+				level: 4,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/tuc-der-ome-93644618',
+				],
+				gpx: [
+					'gpx/tuc-der-ome/tuc-der-ome.gpx'
+				]
+			},
+		]
+	},
+	{
 		name: 'Comapedrosa',
 		height: 2943,
 		lat: 42.59181202446238,
