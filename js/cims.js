@@ -1002,4 +1002,95 @@ var cims = [
 			},
 		]
 	},
+	{
+		name: 'Posets',
+		height: 3369,
+		lat: 42.65464,
+		lon:  0.43524,
+		routes: [
+			{
+				origin: 'Refugi de Viadós',
+				description: 'Ruta llarga i amb cresta final.',
+				level: 4,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/viados-llardana-posets-por-el-bosque-del-clot-directa-17631812',
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/posets-9325248'
+				],
+				gpx: [
+					'gpx/posets/posets-viados.gpx'
+				]
+			},
+		]
+	},
+	{
+		name: 'Aneto',
+		height: 3404,
+		lat: 42.63107567942477,
+		lon: 0.6566423177719117,
+		routes: [
+			{
+				origin: 'La Besurta',
+				description: 'Pujada pel Portillón Superior. Pas exposat al Puente de Mahoma. Tenir present que no es pot pujar en cotxe fins la Besurta durant l\'hivern',
+				level: 4,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/la-besurta-portillo-superior-gelera-daneto-pas-de-mahoma-aneto-aigualluts-37209841',
+				],
+				gpx: [
+					'gpx/aneto/pujada-portillon.gpx'
+				]
+			},
+			{
+				origin: 'Aneto',
+				description: 'Baixada per Aigualluts. Recomanable al ser més esquiable que l\'itinerari de pujada.',
+				level: 3,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/la-besurta-portillo-superior-gelera-daneto-pas-de-mahoma-aneto-aigualluts-37209841',
+				],
+				gpx: [
+					'gpx/aneto/baixada-aigualluts.gpx'
+				]
+			},
+		]
+	},
+	{
+		name: 'Posets',
+		height: 3369,
+		lat: 42.65464,
+		lon:  0.43524,
+		routes: [
+			{
+				origin: 'Refugi de Viadós',
+				description: 'Ruta llarga i amb cresta final.',
+				level: 4,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/viados-llardana-posets-por-el-bosque-del-clot-directa-17631812',
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/posets-9325248'
+				],
+				gpx: [
+					'gpx/posets/posets-viados.gpx'
+				]
+			},
+		]
+	},
+	{
+		name: 'Pic de Bassiero',
+		height: 2897,
+		lat: 42.60648,
+		lon: 0.99667,
+		routes: [
+			{
+				origin: 'Refugi del Gerdar',
+				description: '',
+				level: 4,
+				links: [
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/bassiero-des-de-refugi-del-gerdar-per-cabanes-12571567',
+					'https://ca.wikiloc.com/rutes-esqui-de-muntanya/pic-de-bassiero-oriental-63058820'
+				],
+				gpx: [
+					'gpx/bassiero/bassiero.gpx'
+				]
+			},
+		]
+	},
+	
 ];
