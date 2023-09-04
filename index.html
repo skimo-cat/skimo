@@ -55,8 +55,8 @@
     <input id="wc-range" type="range" min=0 max= step=1 value=0 oninput="updateWCImage()" onchange="updateWCImage()"><br>
     <p id="wc-footer"><span id="wc-date"></span><span  style="float:right;margin-top:0;">Font: <span id="wc-attribution"></span></span></p>
   </div>
-  <div id="plujaoneu-overlay" style="display:none;">
 
+  <div id="plujaoneu-overlay" style="display:none;">
     <!-- meteocat plujaoneu llegenda -->
   <div class="legend">
     <div class="legend-title">Tipus de precipitació</div><div class="legend-scale"><ul class="legend-labels"><li><span style="background-color:#FFC8C8"></span> <span class="label"></span></li><li><span style="background-color:#F8A0A0"></span> <span class="label">Pluja</span></li><li><span style="background-color:#E67070"></span> <span class="label"></span></li><li><span style="background-color:#E65050"></span> <span class="label"></span></li><li><span style="background-color:#C83C3C"></span> <span class="label"></span></li><li><span style="background-color:#A42020"></span> <span class="label"></span></li><li><span style="background-color:#C8FFBE"></span> <span class="label"></span></li><li><span style="background-color:#B4FAAA"></span> <span class="label">Aiguaneu</span></li><li><span style="background-color:#78F573"></span> <span class="label"></span></li><li><span style="background-color:#50F050"></span> <span class="label"></span></li><li><span style="background-color:#37D23C"></span> <span class="label"></span></li><li><span style="background-color:#0FA00F"></span> <span class="label"></span></li><li><span style="background-color:#B4F0FA"></span> <span class="label"></span></li><li><span style="background-color:#96D2FA"></span> <span class="label">Neu</span></li><li><span style="background-color:#50A5F5"></span> <span class="label"></span></li><li><span style="background-color:#3C96F5"></span> <span class="label"></span></li><li><span style="background-color:#2882F0"></span> <span class="label"></span></li><li><span style="background-color:#1464D2"></span> <span class="label"></span></li></ul></div></div>
@@ -64,17 +64,114 @@
     <input id="plujaoneu-range" type="range" min=1 max=28 step=1 value=28 oninput="updatePlujaoNeuTiles()" onchange="updatePlujaoNeuTiles()">
     <span id="plujaoneu-text"></span>
   </div>
+
+  <!-- Login -->
+  <div class="centered-axis-xy overlay login-overlay" id="login-overlay" style="visibility: hidden;">
+    <h2>Inicia Sessió</h2>
+    <form id="login-form" class="login-form" action="">
+      <label for="login-username">Usuari o Email</label>
+      <input type="text" name="login-username" id="login-username" placeholder="">
+      <br/>
+      <label for="login-password">Contrasenya</label>
+      <input type="password" name="login-password" id="login-password" placeholder="">
+      <br/>
+      <input type="submit" class="login-submit-btn" value="Inicia Sessió">
+    </form>
+
+    <p id="login-error-message" class="form-error-message"></p>
+  </div>
+
+<!-- Register -->
+  <div class="centered-axis-xy overlay login-overlay" id="register-overlay" style="visibility: hidden;">
+    <h2>Registra't</h2>
+    <form id="register-form" class="login-form" action="">
+      <label for="login-username">Email</label>
+      <input type="text" name="register-email" id="register-email" placeholder="correu@domini.com">
+      <br/>
+      <label for="login-username">Usuari</label>
+      <input type="text" name="register-username" id="register-username" placeholder="">
+      <br/>
+      <label for="login-password">Contrasenya</label>
+      <input type="password" name="register-password" id="register-password" placeholder="">
+      <br/>
+      <input type="submit" class="login-submit-btn" value="Registrar-se">
+    </form>
+
+    <p id="register-error-message" class="form-error-message"></p>
+  </div>
+
+
+<!-- Dificultat -->
+  <div class="centered-axis-xy overlay login-overlay" id="dificultat-overlay" style="visibility: hidden;">
+    <h2>Afegeix dificultat</h2>
+
+    <p>
+      <b>Cim:</b> <span id="dificultat-cim-nom"></span>
+    </p>
+
+    <div id="dificultat-selects-container">
+      <section class="section-select-dificultat">
+        <label for="dificultat-alpina-select">Dificultat Alpina</label>
+        <select id="dificultat-alpina-select" form="dificultat-form">
+          <option value="1">Fàcil</option>
+          <option value="2">Moderada</option>
+          <option value="3">Avançada</option>
+          <option value="4">Difícil</option>
+          <option value="5">Molt Difícil</option>
+        </select>
+      </section>
+
+      <section class="section-select-dificultat">
+        <label for="dificultat-esqui-select">Dificultat Esqui</label>
+        <select id="dificultat-esqui-select" form="difucltat-form">
+          <option value="1">Fàcil (S1)</option>
+          <option value="2">Moderada (S2)</option>
+          <option value="3">Avançada (S3)</option>
+          <option value="4">Difícil (S4)</option>
+          <option value="5">Molt Difícil (S5)</option>
+        </select>
+      </section>
+
+      <section class="section-select-dificultat">
+        <label for="dificultat-fisica-select">Dificultat Física</label>
+        <select id="dificultat-fisica-select" form="dificultat-form">
+          <option value="1">Fàcil</option>
+          <option value="2">Moderada</option>
+          <option value="3">Avançada</option>
+          <option value="4">Difícil</option>
+          <option value="5">Molt Difícil</option>
+        </select>
+      </section>
+    </div>
+
+    <form id="dificultat-form" action="">
+      <input id="dificultat-form-button" type="submit" class="dificultat-submit-btn" value="Enviar">
+      <input type="submit" class="dificultat-submit-btn" value="Cancel·lar">
+    </form>
+
+    <p id="dificultat-error-message" class="form-error-message"></p>
+
+  </div>
+
+
+
   <div id="logo-overlay">
+    <p id="login-register-text">
+      <a id="login-button">Inicia Sessió</a> / <a id="register-button">Registra't</a>
+    </p>
     <img src="img/skimo-cat-logo-2.png">
   </div>
+
   <div id="map">
   </div>
-  <script src="js/cims.js"></script>
+
   <script src="js/gruix_neu.js"></script>
   <script src="js/refus.js"></script>
   <script src="js/webcams.js"></script>
   <script src="js/plujaoneu.js"></script>
   <script src="js/bpa.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/cims.js"></script>
   <script src="js/map.js"></script>
 </body>
 </html>

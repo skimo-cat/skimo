@@ -25,6 +25,7 @@ html, body, #map {
 	margin:  10px;
 	margin-top: 0px;
 	padding-top: 0px;
+    margin-bottom: 0px;
 }
 
 .route_link {
@@ -42,6 +43,89 @@ html, body, #map {
 .box {
 	float: right;
 	font-size: xx-large;
+}
+
+.overlay {
+	position: absolute;
+	z-index: 10000;
+	max-width: 900px;
+	width: 100%;
+	padding: 1%;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+}
+
+.login-form {
+    margin: 2%;
+    padding: 5%;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #151515;
+
+}
+
+.login-form label {
+    display: inline-block;
+    width: 75%;
+    text-align: left;
+    font-size: x-small;
+}
+
+
+.login-form label:after {
+    content: ":";
+}
+
+.login-form input {
+    width: 75%;
+}
+
+.login-submit-btn {
+    margin-top: 3%;
+    width: 50% !important;
+    background-color: gray;
+    padding: 2%;
+    box-shadow: 0 2px 0 rgb(75, 75, 75);
+    cursor: pointer;
+}
+
+.login-submit-btn:hover {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.login-overlay {
+    text-align: center;
+}
+
+.form-error-message {
+    color: red;
+    /* bold */
+    font-weight: 600;
+}
+
+#logout-button {
+    margin-left: 5%;
+    font-size: x-small;
+}
+
+.dificultat-item {
+    margin: 0 !important;
+    padding: 0;
+}
+
+.dificultat-title {
+    text-align: center;
+    display: block;
+    margin: 0 !important;
+    margin-bottom: 2% !important;
+}
+
+.dificultats {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
 }
 
 #wc-overlay {
@@ -62,6 +146,45 @@ html, body, #map {
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
+}
+
+/*
+.ruta-props-warp {
+    display: grid;
+    /*
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0px;
+    margin: 0 auto;
+
+}
+
+.propietat-ruta {
+    margin: 0 !important;
+}
+*/
+
+
+.props-table {
+    border-collapse: collapse;
+    width: 100%;
+
+    /* center horizontally */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.props-table td, .props-table th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 1%;
+    text-align: center !important;
+}
+
+.table-element {
+    max-width: 15ch;
 }
 
 .wc-text {
@@ -141,6 +264,55 @@ html, body, #map {
     padding-top: 5%;
     padding-right: 10px;
     padding-left: 10px;
+}
+
+#logo-overlay p {
+    font-family: ui-sans-serif, system-ui;
+    font-size: small;
+    text-align: center;
+    padding: 0;
+    padding-top: 3%;
+    margin: 0;
+}
+
+#logo-overlay p a {
+    background-color: rgb(211, 211, 211);
+    padding: 2%;
+    box-shadow: 0 2px 0 rgb(75, 75, 75);
+    cursor: pointer;
+}
+
+#logo-overlay p a:hover {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.section-select-dificultat {
+    display: flex;
+    margin: 2%;
+    width: 50%;
+    max-width: 250px;
+}
+
+#dificultat-selects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 75%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#dificultat-selects-container label {
+    margin-right: 5%;
+}
+
+#dificultat-selects-container label::after {
+    content: ":";
+}
+
+#afegir-dificultat {
+    cursor: pointer;
 }
 
 #bpa-svg {

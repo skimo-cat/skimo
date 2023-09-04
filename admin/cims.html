@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administració de Cims</title>
+
+    <style>
+        .overlay-div {
+            /*
+            position: fixed;
+            top: 0;
+            left: 0;
+            */
+            width: 90%;
+            height: 90%;
+            background-color: rgb(177, 177, 177);
+            z-index: 1000;
+            display: none;
+
+            /* center vertically and horizontally */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            text-align: center;
+
+            overflow-x: scroll;
+        }
+
+        .warp-input {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: left;
+            width: 75%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .warp-input input {
+            width: 100%;
+            margin: 0 0 10px 0;
+        }
+
+        .buttons-after-table {
+            margin: 10px;
+        }
+
+        header {
+            /* center horizontally */
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2%;
+        }
+
+        table {
+            border-collapse: collapse;
+            font-family: sans-serif;
+
+            /* center horizontally */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Administració de Cims</h1>
+
+    <div class="overlay-div" id="overlay-div">
+        <h1>Nou cim</h1>
+        <form id="add-cim-form">
+            <div class="warp-input">
+                <label for="nom">Nom</label>
+                <input type="text" name="nom" id="add-cim-name">
+            </div>
+            <div class="warp-input">
+                <label for="alcada">Alçada</label>
+                <input type="number" name="alcada" id="add-cim-height">
+            </div>
+            <div class="warp-input">
+                <label for="lat">Latitud</label>
+                <input type="text" name="lat" id="add-cim-lat">
+            </div>
+            <div class="warp-input">
+                <label for="lon">Longitud</label>
+                <input type="text" name="lon" id="add-cim-lon">
+            </div>
+            <input type="submit" value="Afegir">
+            <input type="submit" value="Cancel·lar">
+        </form>
+    </div>
+
+    <div class="overlay-div" id="cim-routes">
+        <h1>Rutes del cim</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Img URL</th>
+                    <th>Descripció</th>
+                    <th>GPX path</th>
+                    <th>Links</th>
+                    <th>Inici</th>
+                    <th>Distance (km)</th>
+                    <th>Desnivell (m)</th>
+                    <th>Accions</th>
+                </tr>
+            </thead>
+            <tbody id="cim-routes-tbody">
+            </tbody>
+        </table>
+
+        <div class="buttons-after-table">
+            <button id="cim-routes-close">Tancar</button>
+            <button id="cim-routes-add">Afegir Ruta</button>
+        </div>
+
+        <div id="add-route-container" style="display: none;">
+            <form id="add-route-form">
+                <div class="warp-input">
+                    <label for="descripcio">Descripció</label>
+                    <input type="text" name="descripcio" id="add-route-descripcio">
+                </div>
+                <div class="warp-input">
+                    <label for="gpx">GPX path</label>
+                    <input type="text" name="gpx" id="add-route-gpx">
+                </div>
+                <div class="warp-input">
+                    <label for="links">Links</label>
+                    <input type="text" name="links" id="add-route-links">
+                </div>
+                <div class="warp-input">
+                    <label for="inici">Inici</label>
+                    <input type="text" name="inici" id="add-route-inici">
+                </div>
+                <div class="warp-input">
+                    <input type="submit" value="Afegir">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <section id="main-container">
+        <h1 style="color: red; text-align: center;" id="acces-denied">Accés denegat</h1>
+        <header>
+            <button id="add-cim-button">Afegir cim</button>
+        </header>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Alçada</th>
+                    <th>Lat</th>
+                    <th>Lon</th>
+                    <th>Accions</th>
+                </tr>
+            </thead>
+            <tbody id="cims-table-tbody">
+
+            </tbody>
+        </table>
+    </section>
+
+   <script src="js/cims.js"></script> 
+    
+</body>
+</html>

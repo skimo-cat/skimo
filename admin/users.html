@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Usuaris</title>
+
+    <style>
+        body table tbody tr td {
+            cursor: pointer;
+        }
+
+        table {
+            border-collapse: collapse;
+            font-family: sans-serif;
+
+            /* center horizontally */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Administració d'usuaris</h1>
+
+    <section id="main-container">
+
+        <h1 style="color: red; text-align: center;" id="acces-denied">No tens prous privilegis</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Usuari</th>
+                    <th>Correu</th>
+                    <th>Es admin?</th>
+                    <th>Ban</th>
+                    <th>Accions</th>
+                </tr>
+            </thead>
+            <tbody id="users-table-body">
+            </tbody>
+        </table>
+    </section>
+
+   <script src="js/users.js"></script> 
+</body>
+</html>

@@ -2,8 +2,12 @@ var outdoors_layer = L.tileLayer('https://tile.thunderforest.com/outdoors/{z}/{x
     maxZoom: 19,
     attribution: '© OpenStreetMap'
 });
-var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+//var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+//    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+//});
+
+var satellite = L.tileLayer('https://tiles.platform.fatmap.com/winter-imagery/{z}/{x}/{y}.jpg', {
+    attribution: 'Fatmap'
 });
 var tpotresc_layer = L.tileLayer('https://api.topotresc.com/tiles/{z}/{x}/{y}.png', {attribution: 'Tiles © <a href="https://www.topotresc.com/">topotresc</a>'})
 
@@ -30,7 +34,9 @@ attribution: 'Institut Cartogràfic i Geològic de Catalunya',
 });
 
 
-const ortoHibridaICGC = L.tileLayer('https://geoserveis.icgc.cat/styles/icgc_orto_hibrida/{z}/{x}/{y}.png', {
+//const ortoHibridaICGC = L.tileLayer('https://geoserveis.icgc.cat/styles/icgc_orto_hibrida/{z}/{x}/{y}.png', {
+const ortoHibridaICGC = L.tileLayer('https://tiles.platform.fatmap.com/winter-imagery/{z}/{x}/{y}.jpg', {
+
         maxZoom: 19,
         attribution: 'Institut Cartogràfic i Geològic de Catalunya CC-BY-SA-3'
     });
@@ -49,7 +55,7 @@ map.setView([41.75, 1.65], 8);
 var baseMaps = {
     "Relleu topogràfic": outdoors_layer,
     "Topogràfica hibrida": tpotresc_layer,
-    "Satel·lit": Esri_WorldImagery,
+    "Satel·lit": satellite,
     "Topogràfic": serveiTopoCache,
     "Ortofoto": serveiOrtoCache,
     "Ortofoto hibrida": ortoHibridaICGC,
@@ -110,7 +116,7 @@ function setMarkers() {
 
                 }
             popup_text += "</h2><p class='p-height'><a class='peak_height'>(" + c.height + "m)</a></p>";
-            popup_text += "</header><hr>"
+            popup_text += "</header>"
 
 
 
@@ -118,11 +124,26 @@ function setMarkers() {
                 let route = c.routes[j];
                 popup_text += "<article>"
 
-                if (route.origin != '') {
-                    popup_text += "<p><b>Inici</b>: " + route.origin + "</p>"
+                if (!route.origin) route.origin = "?";
+                if (!route.distance) route.distance = "?";
+                if (!route.elevation) route.elevation = "?";
+
+                popup_text += "<table class='props-table'><thead><th><b>Inici</b></th><th><b>Distància</b></th><th><b>Desnivell</b></th></thead><tbody><tr><td class='table-element'>" + route.origin + "</td><td class='table-element table-element-numeric'>" + route.distance + "km</td><td class='table-element table-element-numeric'>" + route.elevation + "m</td></tr></tbody></table>"
+                /*
+                if (route.origin) {
+                    popup_text += "<div class='ruta-props-warp'><p class='propietat-ruta'><b>Inici</b>: " + route.origin + "</p>"
                 }
-                popup_text += "<div class='box' style='color:" + GPX_COLORS[j] + "'>&#9632;</div>";
-                if (route.description != '') {
+
+                if (route.distance) {
+                    popup_text += "<p class='propietat-ruta'><b>Distància</b>: " + route.distance + "km</p>"
+                }
+
+                if (route.elevation) {
+                    popup_text += "<p class='propietat-ruta'><b>Desnivell</b>: " + route.elevation + "m</p>"
+                }
+                */
+                popup_text += "</div><div class='box' style='color:" + GPX_COLORS[j] + "'>&#9632;</div>";
+                if (route.description) {
                     popup_text += "<p class='route_description'>" + route.description + "</p>";
 
                 }
@@ -131,7 +152,16 @@ function setMarkers() {
                     let link = route.links[x];
                     popup_text += "<li><a class='route_link' target=”_blank” href='" + link + "'>" + link + "</a></li>";
                 }
-                popup_text += "</ul></article><hr></section>";
+                popup_text += "</ul>";
+
+                // Dificultat
+                let dif_id = c.routes[j].id;
+                popup_text += "<p class='dificultat-title'><b>Dificultat:</b> (<a id='afegir-dificultat' onclick='openDificultatOverlay(" + dif_id + ")'>Opina!</a>)</p>";
+                popup_text += "<div id='dificultats-"+ dif_id +"' class='dificultats'><p class='dificultat-item'><b>Alpina:</b><span id='dificultat-alpina-"+ dif_id +"'></span>/5</p>";
+                popup_text += "<p class='dificultat-item'><b>Esqui:</b><span id='dificultat-esqui-"+dif_id+"'></span>/5</p>";
+                popup_text += "<p class='dificultat-item'><b>Fisica:</b><span id='dificultat-fisica-"+dif_id+"'></span>/5</p></div>";
+
+                popup_text += "</article><hr></section>";
             }
             return popup_text;
         }
@@ -139,14 +169,16 @@ function setMarkers() {
         let popup = new L.popup().setLatLng([cim.lat, cim.lon]).setContent(generatePopupText(cim, i));
         
         markers[i] = L.marker([cim.lat, cim.lon], {icon: cimIcon}).addTo(map).bindPopup(popup).on('popupopen', function (e) {
+                SELECTED_CIM = i+1;
                 for (let j=0; j<cims[i].routes.length; j++) {
+                    setDificultatFromRoute(cims[i].routes[j].id);
                     if (cims[i].routes[j].gpx_object !== undefined) {
                         cims[i].routes[j].gpx_object.addTo(map);
                     } else {
                         if (cim.routes[j].gpx === undefined || cim.routes[j].gpx.lenth === 0) {
                             continue;
                         }
-                        cims[i].routes[j].gpx_object = new L.GPX(cim.routes[j].gpx[0], {
+                        cims[i].routes[j].gpx_object = new L.GPX(cim.routes[j].gpx, {
                             async: true,
                             marker_options: {
                                 startIconUrl: '',
@@ -170,4 +202,7 @@ map.on('click', function(event) {
         x.removeFrom(map);
     }
     document.getElementById("wc-overlay").style.visibility = 'hidden';
+    document.getElementById("login-overlay").style.visibility = 'hidden';
+    document.getElementById("register-overlay").style.visibility = 'hidden';
+    document.getElementById("dificultat-overlay").style.visibility = 'hidden';
 });
