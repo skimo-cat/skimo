@@ -1,4 +1,4 @@
-const API_DOMAIN = "https://backend.skimo.cat/api/"
+API_DOMAIN = "https://backend.skimo.cat/api/"
 
 function changeUsername(id) {
     let newUsername = prompt("Nou nom d'usuari");
@@ -11,7 +11,8 @@ function changeUsername(id) {
         method: 'POST',
         body: "username=" + newUsername,
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        credentials: 'include'
+        credentials: 'include',
+        mode: 'cors',
         })
     .then(function (response) {
         if (response.ok) {
@@ -42,6 +43,7 @@ function changeEmail(id) {
         method: 'POST',
         body: "email=" + newEmail,
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        mode: 'cors',
         credentials: 'include'
         })
     .then(function (response) {
@@ -70,7 +72,11 @@ function changeAdmin(id, username, admin) {
     }
 
     if (confirm("Vols canviar el valor admin de l'usuari " + username + " per " + admin + "?")) {
-        fetch(API_DOMAIN + "/admin/users/" + id + "/admin/" + admin)
+        fetch(API_DOMAIN + "/admin/users/" + id + "/admin/" + admin,
+        {
+        method: 'GET',
+        mode: 'cors',
+        })
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
@@ -98,7 +104,11 @@ function changeBan(id, username, ban) {
     }
 
     if (confirm("Vols canviar el valor ban de l'usuari " + username + " per " + ban + "?")) {
-        fetch(API_DOMAIN + "/admin/users/" + id + "/banned/" + ban)
+        fetch(API_DOMAIN + "/admin/users/" + id + "/banned/" + ban,
+        {
+            method: 'GET',
+            mode: 'cors',
+        })
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
@@ -129,6 +139,7 @@ function setPassword(id) {
         method: 'POST',
         body: "password=" + newPassword,
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        mode: 'cors',
         credentials: 'include'
         })
     .then(function (response) {
@@ -151,7 +162,10 @@ function setPassword(id) {
 
 function deleteUser(id) {
     if (confirm("Vols eliminar l'usuari amb id " + id + "?")) {
-        fetch(API_DOMAIN + "/admin/users/" + id + "/delete")
+        fetch(API_DOMAIN + "/admin/users/" + id + "/delete", {
+            method: 'GET',
+            mode: 'cors',
+        })
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
@@ -174,7 +188,10 @@ function deleteUser(id) {
 function getUsers() {
     let tbody = document.getElementById("users-table-body");
     tbody.innerHTML = "";
-    fetch(API_DOMAIN + '/admin/users')
+    fetch(API_DOMAIN + '/admin/users', {
+        method: 'GET',
+        mode: 'cors',
+    })
     .then(function(response) {
         if (response.ok) {
             response.json().then(function (data) {
