@@ -70,7 +70,8 @@ function handleRegisterForm(e) {
         method: 'POST',
         body: "email=" + email + "&username=" + username + "&password=" + password,
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        credentials: 'include'
+        credentials: 'include',
+        mode: 'cors',
         })
     .then(function (response) {
         if (response.ok) {
@@ -103,7 +104,8 @@ function handleLoginForm(e) {
         method: 'POST',
         body: "username=" + username + "&password=" + password,
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        credentials: 'include'
+        credentials: 'include',
+        mode: 'cors',
         })
     .then(function (response) {
         if (response.ok) {
@@ -163,7 +165,8 @@ function handleDificultatForm(e) {
         method: 'POST',
         body: "dificultat_alpina=" + alpina + "&dificultat_esqui=" + esqui + "&dificultat_fisica=" + fisica,
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        credentials: 'include'
+        credentials: 'include',
+        mode: 'cors',
         })
     .then(function (response) {
         if (response.ok) {
@@ -187,7 +190,13 @@ function handleDificultatForm(e) {
 }
 
 function getCurrentUsername() {
- 	fetch(API_DOMAIN + "/auth/user/current")
+ 	fetch(API_DOMAIN + "/auth/user/current",
+        {
+        method: 'GET',
+        mode: 'cors',
+        credentials: 'include'
+        }
+    )
     .then(function (response) {
         CURRENT_USERNAME = null;
         if (response.ok) {
