@@ -76,6 +76,7 @@ function changeAdmin(id, username, admin) {
         {
         method: 'GET',
         mode: 'cors',
+        credentials: 'include',
         })
         .then(function (response) {
             if (response.ok) {
@@ -108,6 +109,7 @@ function changeBan(id, username, ban) {
         {
             method: 'GET',
             mode: 'cors',
+            credentials: 'include',
         })
         .then(function (response) {
             if (response.ok) {
@@ -165,6 +167,7 @@ function deleteUser(id) {
         fetch(API_DOMAIN + "/admin/users/" + id + "/delete", {
             method: 'GET',
             mode: 'cors',
+            credentials: 'include',
         })
         .then(function (response) {
             if (response.ok) {
@@ -191,6 +194,7 @@ function getUsers() {
     fetch(API_DOMAIN + '/admin/users', {
         method: 'GET',
         mode: 'cors',
+        credentials: 'include',
     })
     .then(function(response) {
         if (response.ok) {
