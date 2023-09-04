@@ -13,6 +13,7 @@ function editCim(id, key, value) {
         method: 'POST',
         body: key + "=" + newValue,
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        mode: 'cors',
         credentials: 'include'
         })
     .then(function (response) {
@@ -99,6 +100,7 @@ function addCim(name, height, lat, lon) {
         method: 'POST',
         body: "name=" + name + "&height=" + height + "&lat=" + lat + "&lon=" + lon,
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        mode: 'cors',
         credentials: 'include'
         })
     .then(function (response) {
@@ -127,6 +129,7 @@ function deleteRoute(id) {
         {
         method: 'POST',
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        mode: 'cors',
         credentials: 'include'
         })
     .then(function (response) {
@@ -170,6 +173,7 @@ function updateRoute(id) {
         method: 'POST',
         body: "description=" + description + "&gpx=" + gpx + "&links=" + links + "&origin=" + origin + "&distance=" + distance + "&elevation=" + elevation + "&name=" + name + "&foto_url=" + foto_url,
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        mode: 'cors',
         credentials: 'include'
         })
     .then(function (response) {
@@ -335,6 +339,7 @@ document.getElementById("add-route-form").addEventListener("submit", function(e)
         method: 'POST',
         body: "description=" + description + "&gpx=" + gpx + "&links=" + links + "&origin=" + origin,
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        mode: 'cors',
         credentials: 'include'
         })
     .then(function (response) {
