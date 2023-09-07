@@ -392,7 +392,6 @@ html, body, #map {
     height: 4px;
     background-color: #659cef;
     border-radius: 3px;
-    
     transition: width 500ms ease-in-out;
 }
 

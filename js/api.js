@@ -127,7 +127,11 @@ function handleLoginForm(e) {
 }
 
 function logoutHandler(e) {
-    fetch(API_DOMAIN + "/auth/logout")
+    fetch(API_DOMAIN + "/auth/logout", {
+        method: 'GET',
+        mode: 'cors',
+        credentials: 'include'
+    })
     .then(function (response) {
         if (response.ok) {
             CURRENT_USERNAME = null;
