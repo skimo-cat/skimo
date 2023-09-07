@@ -48,6 +48,7 @@
 
 <body>
   <div class="centered-axis-xy" id="wc-overlay" style="visibility:hidden;" onclick="onclickWCOveraly(event)">
+    <img src="/img/icons-cim-card/close.png" id="wc-overlay-close" class="overlay-close">
     <h2 id="wc-title" class="peak_name"></h2>
     <div class="spinner" id="wc-spinner"></div>
     <p class="wc-text" id="wc-error-message" style="display:none;">Error al carregar la imatge</p>
@@ -67,6 +68,7 @@
 
   <!-- Login -->
   <div class="centered-axis-xy overlay login-overlay" id="login-overlay" style="visibility: hidden;">
+    <img src="/img/icons-cim-card/close.png" id="login-overlay-close" class="overlay-close">
     <h2>Inicia Sessió</h2>
     <form id="login-form" class="login-form" action="">
       <label for="login-username">Usuari o Email</label>
@@ -83,6 +85,7 @@
 
 <!-- Register -->
   <div class="centered-axis-xy overlay login-overlay" id="register-overlay" style="visibility: hidden;">
+    <img src="/img/icons-cim-card/close.png" id="register-overlay-close" class="overlay-close">
     <h2>Registra't</h2>
     <form id="register-form" class="login-form" action="">
       <label for="login-username">Email</label>
@@ -103,6 +106,7 @@
 
 <!-- Dificultat -->
   <div class="centered-axis-xy overlay login-overlay" id="dificultat-overlay" style="visibility: hidden;">
+    <img src="/img/icons-cim-card/close.png" id="dificultat-overlay-close" class="overlay-close">
     <h2>Afegeix dificultat</h2>
 
     <p>
@@ -154,6 +158,79 @@
   </div>
 
 
+  <!-- Cim info overlay -->
+  <div id="cim-info-overlay" class="overlay" style="visibility: hidden;">
+    <img src="/img/icons-cim-card/close.png" id="cim-overlay-close" class="overlay-close">
+    <div class="cim-card">
+      <header class="card-cim-header">
+        <h3 class="card-cim-name"><span id="card-inner-cim-name">Puigmal</span><span class="card-cim-height">2910</span></h3>
+        <div id="route-selector">
+          <!--<div class='box route-select-btn' style='color:blue'>&#9632;</div>
+          <div class='box route-select-btn' style='color:red'>&#9632;</div>
+          -->
+        </div>
+      </header>
+      <section class="card-cim-route">
+        <h2 class="card-cim-route-title">Vessant francesa</h2>
+        <p class="cim-card-route-description" id="cim-card-route-description">Pujada i baixada per l'estació d'esquí. Itinerari d'iniciació</p>
+
+        <!-- Wrapper to be able to set a margin-top on ressenyes -->
+        <div>
+          <!-- Info -->
+          <section id="route-data" class="card-cim-section">
+            <div class="card-cim-route-item"><img src="/img/icons-cim-card/home.png" /><span id="cim-route-start">Pistes d'esqui Puigmal</span></div>
+            <div class="card-cim-route-item"><img src="/img/icons-cim-card/distance.png" /><span id="cim-route-distance">15km</span></div>
+            <div class="card-cim-route-item"><img src="/img/icons-cim-card/elevation.png"><span id="cim-route-elevation">1000m</span></div>
+
+          </section>
+
+          <!-- Dificultats -->
+          <section class="card-cim-section">
+            <div id="card-cim-dificultats">
+              <div class="card-cim-dificultat-item">
+                <h3 class="card-cim-dificultat-title">Dificultat alpina</h3>
+                <div class="progress-bar">
+                  <span id="progress-bar-dificultat-alpina" class="progress-bar-fill" style="width: 0%;"></span>
+                </div>
+              </div>
+
+              <div class="card-cim-dificultat-item">
+                <h3 class="card-cim-dificultat-title">Dificultat Esquí</h3>
+                <div class="progress-bar">
+                  <span id="progress-bar-dificultat-esqui" class="progress-bar-fill" style="width: 0%;"></span>
+                </div>
+              </div>
+
+              <div class="card-cim-dificultat-item">
+                <h3 class="card-cim-dificultat-title">Dificultat Fisica</h3>
+                <div class="progress-bar">
+                  <span id="progress-bar-dificultat-fisica" class="progress-bar-fill" style="width: 0%;"></span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+
+
+        <!-- Ressenyes -->
+        <section id="card-cim-ressenyes" class="card-cim-section">
+          <h2>Ressenyes</h2>
+          <ul id="card-cim-route-links">
+          </ul>
+        </section>
+
+        <footer>
+          <div id="cim-card-dificultat-rate-btn" class="cim-card-btn"><img src="/img/icons-cim-card/vote.png" />Opina sobre la dificultat</div>
+          <div class="cim-card-btn"><img src="/img/icons-cim-card/comment.png" />Comenta</div>
+        </footer>
+
+
+      </section>
+    </div>
+  </div>
+
+
 
   <div id="logo-overlay">
     <p id="login-register-text">
@@ -172,6 +249,7 @@
   <script src="js/bpa.js"></script>
   <script src="js/api.js"></script>
   <script src="js/cims.js"></script>
+  <script src="js/cim-card-controller.js"></script>
   <script src="js/map.js"></script>
 </body>
 </html>

@@ -129,19 +129,7 @@ function setMarkers() {
                 if (!route.elevation) route.elevation = "?";
 
                 popup_text += "<table class='props-table'><thead><th><b>Inici</b></th><th><b>Distància</b></th><th><b>Desnivell</b></th></thead><tbody><tr><td class='table-element'>" + route.origin + "</td><td class='table-element table-element-numeric'>" + route.distance + "km</td><td class='table-element table-element-numeric'>" + route.elevation + "m</td></tr></tbody></table>"
-                /*
-                if (route.origin) {
-                    popup_text += "<div class='ruta-props-warp'><p class='propietat-ruta'><b>Inici</b>: " + route.origin + "</p>"
-                }
 
-                if (route.distance) {
-                    popup_text += "<p class='propietat-ruta'><b>Distància</b>: " + route.distance + "km</p>"
-                }
-
-                if (route.elevation) {
-                    popup_text += "<p class='propietat-ruta'><b>Desnivell</b>: " + route.elevation + "m</p>"
-                }
-                */
                 popup_text += "</div><div class='box' style='color:" + GPX_COLORS[j] + "'>&#9632;</div>";
                 if (route.description) {
                     popup_text += "<p class='route_description'>" + route.description + "</p>";
@@ -168,10 +156,11 @@ function setMarkers() {
 
         let popup = new L.popup().setLatLng([cim.lat, cim.lon]).setContent(generatePopupText(cim, i));
         
-        markers[i] = L.marker([cim.lat, cim.lon], {icon: cimIcon}).addTo(map).bindPopup(popup).on('popupopen', function (e) {
-                SELECTED_CIM = i+1;
+        // .bindPopup(popup)
+        markers[i] = L.marker([cim.lat, cim.lon], {icon: cimIcon}).addTo(map).on('click', function (e) {
+                SELECTED_CIM = cim.id;
+                createCimCard(cim);
                 for (let j=0; j<cims[i].routes.length; j++) {
-                    setDificultatFromRoute(cims[i].routes[j].id);
                     if (cims[i].routes[j].gpx_object !== undefined) {
                         cims[i].routes[j].gpx_object.addTo(map);
                     } else {

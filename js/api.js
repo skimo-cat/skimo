@@ -44,8 +44,6 @@ function openDificultatOverlay(id_ruta) {
     document.getElementById('dificultat-overlay').style.visibility='visible';
     document.getElementById('dificultat-cim-nom').innerHTML = getSelectedCim().name;
 
-    SELECTED_ROUTE = id_ruta;
-
     if (CURRENT_USERNAME === null) {
         document.getElementById('dificultat-error-message').innerHTML = "Has d'iniciar sessió per afegir una dificultat";
         document.getElementById('dificultat-form-button').disabled = true;
@@ -220,12 +218,12 @@ function getCurrentUsername() {
 }
 
 function setDificultatFromRoute(route_id) {
-    document.getElementById("dificultats-" + route_id).style.color = "black";
+    //document.getElementById("dificultats-" + route_id).style.color = "black";
 
     if (catched_dificultats[route_id] !== undefined) {
-        document.getElementById('dificultat-alpina-' + route_id).innerHTML = catched_dificultats[route_id].dificultat_alpina;
-        document.getElementById('dificultat-esqui-' + route_id).innerHTML = catched_dificultats[route_id].dificultat_esqui;
-        document.getElementById('dificultat-fisica-' + route_id).innerHTML = catched_dificultats[route_id].dificultat_fisica;
+        setDificultatOnCimCard(catched_dificultats[route_id].dificultat_alpina,
+                               catched_dificultats[route_id].dificultat_esqui,
+                               catched_dificultats[route_id].dificultat_fisica);
         return;
     }
 
@@ -259,9 +257,8 @@ function setDificultatFromRoute(route_id) {
                     dificultat_fisica = Math.round(dificultat_fisica * 10) / 10;
                 }
 
-                document.getElementById('dificultat-alpina-' + route_id).innerHTML = dificultat_alpina
-                document.getElementById('dificultat-esqui-' + route_id).innerHTML = dificultat_esqui; 
-                document.getElementById('dificultat-fisica-' + route_id).innerHTML = dificultat_fisica;
+                setDificultatOnCimCard(dificultat_alpina, dificultat_esqui, dificultat_fisica);
+
                 catched_dificultats[route_id] = {
                     dificultat_alpina: dificultat_alpina,
                     dificultat_esqui: dificultat_esqui,
@@ -269,21 +266,26 @@ function setDificultatFromRoute(route_id) {
                 }
             });
         } else {
-            document.getElementById("dificultats-" + route_id).innerHTML = data.message;
-            document.getElementById("dificultats-" + route_id).style.color = "red";
+            //document.getElementById("dificultats-" + route_id).innerHTML = data.message;
+            //document.getElementById("dificultats-" + route_id).style.color = "red";
             return;
         }
     })
     .catch(err => {
-        document.getElementById("dificultats-" + route_id).innerHTML = "Error del servidor";
-        document.getElementById("dificultats-" + route_id).style.color = "red";
+        //document.getElementById("dificultats-" + route_id).innerHTML = "Error del servidor";
+        //document.getElementById("dificultats-" + route_id).style.color = "red";
     });
 }
 
 // Handlers
 document.getElementById('login-button').addEventListener('click', openLoginOverlay);
+document.getElementById('login-overlay-close').addEventListener('click', closeAllOverlays);
+document.getElementById('register-overlay-close').addEventListener('click', closeAllOverlays);
+document.getElementById('dificultat-overlay-close').addEventListener('click', closeAllOverlays);
+document.getElementById('wc-overlay-close').addEventListener('click', closeAllOverlays);
 document.getElementById('register-button').addEventListener('click', openRegisterOverlay);
 document.getElementById('login-form').addEventListener('submit', handleLoginForm);
 document.getElementById('register-form').addEventListener('submit', handleRegisterForm);
+document.getElementById('cim-card-dificultat-rate-btn').addEventListener('click', openDificultatOverlay);
 document.getElementById('dificultat-form').addEventListener('submit', handleDificultatForm);
 getCurrentUsername();
