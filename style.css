@@ -402,11 +402,21 @@ html, body, #map {
     align-items: center;
     width: 25%;
     cursor: pointer;
-    background-color: #9d9d9d;
+    background-color: rgb(211, 211, 212);
     border-bottom: 1px solid #676767;
+    box-shadow: 0 2px 0 rgb(75, 75, 75);
     padding: 3px;
     text-align: center;
     font-size: x-small;
+}
+
+.cim-card-btn:hover {
+    background-color: #b2bbc3;
+}
+
+#cim-card-comment-btn {
+    text-decoration: none;
+    color: black;
 }
 
 .cim-card footer {

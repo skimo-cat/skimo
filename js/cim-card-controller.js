@@ -71,6 +71,7 @@ function createCimCard(cim) {
     // ----- Header -----
     document.getElementById("card-inner-cim-name").innerHTML = cim.name;
     document.getElementsByClassName("card-cim-height")[0].innerHTML = cim.height;
+    document.getElementById("cim-card-comment-btn").href = cim.main_url;
 
     document.getElementById("route-selector").innerHTML = "";
     for (let i=0; i<num_routes; i++) {
