@@ -246,12 +246,21 @@ function getUsers() {
                     buttonSetPassword.innerHTML = "Canviar contrasenya";
                     td6.appendChild(buttonSetPassword);
                     td6.appendChild(button);
+
+                    let td7 = document.createElement("td");
+                    td7.innerHTML = user.comments;
+
+                    let td8 = document.createElement("td");
+                    td8.innerHTML = user.dificultats;
+
                     tr.appendChild(td1);
                     tr.appendChild(td2);
                     tr.appendChild(td3);
                     tr.appendChild(td4);
                     tr.appendChild(td5);
                     tr.appendChild(td6);
+                    tr.appendChild(td7);
+                    tr.appendChild(td8);
                     tbody.appendChild(tr);
                 }
             });
