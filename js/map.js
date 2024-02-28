@@ -18,6 +18,13 @@ var atesLayer = L.tileLayer.wms('https://geoserver.atesmaps.org/wms?TRANSPARENT=
     attribution: '<a htef="https://atesmaps.org">Atesmaps</a>'
 });
 
+var allausLayer = L.tileLayer.wms('https://geoserver.atesmaps.org/wms?TRANSPARENT=true&', {
+    layers: ' ATES:allaus_all',
+    transparent: true,
+    format: 'image/png',
+    attribution: '<a htef="https://atesmaps.org">Atesmaps</a>'
+});
+
 // ----
 const serveiTopoCache = L.tileLayer.wms("https://geoserveis.icgc.cat/icc_mapesmultibase/utm/wms/service?", {
 layers: 'topo',
@@ -66,6 +73,7 @@ var overlayMaps = {
     "Gruix de neu": GNLayer,
     "Radar Pluja i Neu": plujaneu_layer,
     "Cartografia ATES": atesLayer,
+    "Allaus habituals": allausLayer,
 
 };
 
