@@ -72,9 +72,8 @@ var overlayMaps = {
     "Refugis": refusLayer,
     "Gruix de neu": GNLayer,
     "Radar Pluja i Neu": plujaneu_layer,
-    "Cartografia ATES": atesLayer,
-    "Allaus habituals": allausLayer,
-
+    //"Cartografia ATES": atesLayer,
+    //"Allaus habituals": allausLayer,
 };
 
 map.on('overlayadd', function (e) {
